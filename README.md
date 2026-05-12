@@ -1,5 +1,13 @@
 # Manuscript Theme
 
+[![License: csswitch Commercial](https://img.shields.io/badge/license-csswitch%20commercial-blue.svg)](./LICENSE)
+[![Buy on Gumroad](https://img.shields.io/badge/Buy-%2449-brightgreen.svg)](https://csswitch.gumroad.com/l/csswitch-manuscript)
+[![Live Demo](https://img.shields.io/badge/demo-live-orange.svg)](https://csswitch.github.io/jekyll-manuscript-theme/)
+
+> **⚠️ License notice:** This theme is source-available but **not free to use**.  
+> Viewing and learning from the code is welcome. Deploying it on any live site requires a [paid license](https://csswitch.gumroad.com/l/csswitch-manuscript).  
+> See [LICENSE](./LICENSE) for full terms.
+
 ![Jekyll](https://img.shields.io/badge/Jekyll-4.x-red?logo=jekyll)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-compatible-success?logo=github)
 ![License](https://img.shields.io/badge/license-MIT-blue)

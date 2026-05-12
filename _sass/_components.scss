@@ -1,0 +1,217 @@
+@import 'variables';
+
+// ── Post card (editorial list style) ─────────────────────────────────────────
+.post-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid $rule;
+  text-decoration: none;
+  color: inherit;
+
+  &:first-child { padding-top: 0; }
+
+  &:hover .post-card__title { color: $accent; }
+
+  &__kicker {
+    @include small-caps;
+    color: $accent;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $ink;
+    line-height: 1.2;
+    transition: color 0.15s;
+  }
+
+  &__excerpt {
+    font-family: $font-body;
+    font-size: 0.95rem;
+    color: $text-secondary;
+    line-height: 1.65;
+  }
+
+  &__meta {
+    @include small-caps;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  &__date { color: $text-dim; }
+  &__tags { display: flex; gap: 0.4rem; }
+}
+
+// ── Featured post (first post, bigger) ───────────────────────────────────────
+.post-card--featured {
+  padding-bottom: 2rem;
+  border-bottom: 2px solid $ink;
+  margin-bottom: 0.5rem;
+
+  .post-card__title { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+  .post-card__excerpt { font-size: 1.05rem; }
+}
+
+// ── Tag pill ──────────────────────────────────────────────────────────────────
+.tag-pill {
+  font-family: $font-sans;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: $radius-sm;
+  background: $cream-2;
+  color: $text-secondary;
+  border: 1px solid $rule;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  &:hover { background: $accent; color: #fff; border-color: $accent; text-decoration: none; }
+}
+
+// ── Section header ────────────────────────────────────────────────────────────
+.section-header {
+  @include double-rule;
+  padding-top: 0.75rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  &__title {
+    font-family: $font-display;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $ink;
+  }
+
+  &__count {
+    @include small-caps;
+    color: $text-dim;
+  }
+}
+
+// ── Post header ───────────────────────────────────────────────────────────────
+.post-header {
+  max-width: $content-w;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+
+  &__kicker {
+    @include small-caps;
+    color: $accent;
+    margin-bottom: 0.75rem;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: $ink;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+
+  &__rule { @include double-rule; width: 60px; margin: 0 auto 1.25rem; }
+
+  &__meta {
+    @include small-caps;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: $text-dim;
+    margin-bottom: 0.5rem;
+  }
+
+  &__tags { display: flex; justify-content: center; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+}
+
+// ── Post body ─────────────────────────────────────────────────────────────────
+.post-body {
+  max-width: $content-w;
+  margin: 0 auto;
+
+  // Drop cap on first paragraph
+  > p:first-of-type {
+    @include drop-cap;
+  }
+}
+
+// ── Pagination ────────────────────────────────────────────────────────────────
+.ms-pagination {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid $rule;
+
+  a, span {
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border: 1px solid $rule;
+    border-radius: $radius;
+    color: $text-secondary;
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+  a:hover { border-color: $accent; color: $accent; text-decoration: none; }
+  .current { background: $accent; border-color: $accent; color: #fff; }
+}
+
+// ── Tags page ─────────────────────────────────────────────────────────────────
+.tags-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+
+.tag-section {
+  margin-bottom: 2.5rem;
+
+  &__heading {
+    font-family: $font-display;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $ink;
+    border-bottom: 1px solid $rule;
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  &__list { list-style: none; padding: 0; }
+
+  &__item {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba($rule, 0.5);
+    display: flex;
+    justify-content: space-between;
+
+    a { color: $text; text-decoration: none; font-size: 0.95rem; &:hover { color: $accent; } }
+    .tag-date { @include small-caps; color: $text-dim; }
+  }
+}
+
+// ── Archive ───────────────────────────────────────────────────────────────────
+.archive-year {
+  font-family: $font-display;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $ink;
+  margin: 1.5rem 0 0.4rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid $rule;
+}
+.archive-list { list-style: none; padding: 0; }
+.archive-list__item {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba($rule, 0.5);
+  display: flex;
+  justify-content: space-between;
+  a { color: $text; text-decoration: none; font-size: 0.95rem; &:hover { color: $accent; } }
+  &__date { @include small-caps; color: $text-dim; }
+}

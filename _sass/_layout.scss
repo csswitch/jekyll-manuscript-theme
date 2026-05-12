@@ -1,0 +1,127 @@
+@import 'variables';
+
+// ── Masthead ─────────────────────────────────────────────────────────────────
+.ms-masthead {
+  background: $ink-dark;
+  color: #e8ddd0;
+  text-align: center;
+  padding: 2.5rem 2rem 2rem;
+  border-bottom: 4px double #4a3a2a;
+
+  &__issue {
+    @include small-caps;
+    color: #7a6a5a;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.2em;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #f5ede0;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  &__tagline {
+    font-family: $font-body;
+    font-style: italic;
+    font-size: 1rem;
+    color: #9a8878;
+  }
+}
+
+// ── Nav bar ───────────────────────────────────────────────────────────────────
+.ms-nav {
+  background: $cream;
+  border-bottom: 1px solid $rule;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &__inner {
+    max-width: $max-w;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: $nav-h;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-family: $font-display;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: $ink;
+    text-decoration: none;
+    &:hover { color: $accent; text-decoration: none; }
+  }
+
+  &__links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+
+    a {
+      @include small-caps;
+      color: $text-secondary;
+      text-decoration: none;
+      transition: color 0.15s;
+      &:hover, &.active { color: $accent; }
+    }
+  }
+
+  &__toggle {
+    display: none;
+    background: none;
+    border: 1px solid $rule;
+    color: $text-secondary;
+    padding: 0.3rem 0.6rem;
+    border-radius: $radius;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+}
+
+// ── Page wrapper ─────────────────────────────────────────────────────────────
+.ms-page {
+  max-width: $max-w;
+  margin: 0 auto;
+  padding: 3.5rem 2rem;
+}
+
+// ── Footer ────────────────────────────────────────────────────────────────────
+.ms-footer {
+  background: $ink-dark;
+  color: #7a6a5a;
+  text-align: center;
+  padding: 2rem;
+  font-family: $font-sans;
+  font-size: 0.8rem;
+  border-top: 3px double #2a1e14;
+
+  a { color: #9a8878; &:hover { color: #d4c8b8; } }
+  p { margin: 0.25rem 0; text-indent: 0; color: #7a6a5a; }
+}
+
+// ── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 640px) {
+  .ms-nav {
+    &__links { display: none; flex-direction: column; }
+    &__toggle { display: block; }
+    &__links.open {
+      display: flex;
+      position: absolute;
+      top: $nav-h; left: 0; right: 0;
+      background: $cream;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid $rule;
+      gap: 1rem;
+    }
+  }
+  .ms-masthead__title { font-size: 2.5rem; }
+  .ms-page { padding: 2rem 1.25rem; }
+}

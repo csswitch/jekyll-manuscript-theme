@@ -1,0 +1,67 @@
+// ── Manuscript Theme — Design Tokens & Mixins ────────────────────────────────
+// Editorial magazine aesthetic: warm cream, deep ink, serif typography
+// Lora (body serif) + Cormorant Garamond (display) + IBM Plex Mono (code)
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Palette ───────────────────────────────────────────────────────────────────
+$cream:        #faf7f2;      // page background — warm off-white
+$cream-2:      #f2ede5;      // slightly darker warm tone
+$ink:          #1a1410;      // deepest ink — headlines
+$ink-dark:     #0d0a07;      // masthead background
+$text:         #2d2520;      // body text
+$text-secondary: #5c4f44;   // secondary / captions
+$text-dim:     #9c8878;      // dim — dates, rules, meta
+$rule:         #c8b9a8;      // thin horizontal rules
+$accent:       #8b1a1a;      // editorial red — links, pull quote bar, accents
+$accent-light: #c44040;      // hover state
+$bg-pull:      #f5f0e8;      // pull quote background
+
+// ── Typography ────────────────────────────────────────────────────────────────
+$font-display: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
+$font-body:    'Lora', Georgia, 'Times New Roman', serif;
+$font-mono:    'IBM Plex Mono', 'Courier New', monospace;
+$font-sans:    'IBM Plex Sans', 'Segoe UI', sans-serif;
+
+// ── Spacing & Layout ─────────────────────────────────────────────────────────
+$max-w:        1100px;
+$content-w:    680px;
+$nav-h:        60px;
+$radius:       4px;
+$radius-sm:    2px;
+
+// ── Mixins ───────────────────────────────────────────────────────────────────
+
+// Hairline rule (editorial separator)
+@mixin rule($color: $rule) {
+  border: none;
+  border-top: 1px solid $color;
+}
+
+// Double rule (Oxford double rule)
+@mixin double-rule($color: $ink) {
+  border-top: 3px double $color;
+}
+
+// Small caps for category labels, bylines
+@mixin small-caps {
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $text-dim;
+}
+
+// Drop cap
+@mixin drop-cap {
+  &::first-letter {
+    font-family: $font-display;
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 0.75;
+    float: left;
+    margin-right: 0.1em;
+    margin-top: 0.08em;
+    color: $ink;
+  }
+}

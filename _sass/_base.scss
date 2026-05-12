@@ -1,0 +1,141 @@
+@import 'variables';
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: $cream;
+  color: $text;
+  font-family: $font-body;
+  font-size: 18px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+// ── Headings ──────────────────────────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  color: $ink;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: 1.75rem; margin: 2.5rem 0 0.75rem; }
+h3 { font-size: 1.35rem; margin: 2rem 0 0.5rem; }
+
+p { margin-bottom: 1.25rem; }
+p + p { text-indent: 1.5em; margin-top: -0.5rem; } // classic indent-first-line
+
+a {
+  color: $accent;
+  text-decoration: underline;
+  text-decoration-color: rgba($accent, 0.35);
+  text-underline-offset: 3px;
+  transition: color 0.15s, text-decoration-color 0.15s;
+  &:hover { color: $accent-light; text-decoration-color: $accent-light; }
+}
+
+// ── Code ──────────────────────────────────────────────────────────────────────
+code, pre { font-family: $font-mono; font-size: 0.82em; }
+
+code {
+  background: $cream-2;
+  border: 1px solid $rule;
+  border-radius: $radius-sm;
+  padding: 0.15em 0.4em;
+  color: $accent;
+}
+
+pre {
+  background: $ink-dark;
+  border-radius: $radius;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+  position: relative;
+
+  code { background: none; border: none; padding: 0; color: #d4c8b8; font-size: 0.875rem; }
+}
+
+// ── Blockquote / Pull Quote ───────────────────────────────────────────────────
+blockquote {
+  border-left: 4px solid $accent;
+  padding: 1.25rem 1.75rem;
+  margin: 2.5rem 0;
+  background: $bg-pull;
+  position: relative;
+
+  // Opening quotation mark
+  &::before {
+    content: '\201C';
+    font-family: $font-display;
+    font-size: 4rem;
+    color: rgba($accent, 0.2);
+    position: absolute;
+    top: -0.5rem; left: 0.75rem;
+    line-height: 1;
+  }
+
+  p {
+    font-family: $font-display;
+    font-size: 1.35rem;
+    font-style: italic;
+    line-height: 1.4;
+    color: $ink;
+    margin: 0;
+    text-indent: 0;
+  }
+}
+
+// ── Horizontal rule ───────────────────────────────────────────────────────────
+hr {
+  @include double-rule;
+  margin: 3rem auto;
+  width: 60px;
+}
+
+// ── Media ─────────────────────────────────────────────────────────────────────
+img {
+  max-width: 100%;
+  border-radius: $radius;
+  margin: 1.5rem 0;
+}
+
+figure {
+  margin: 2rem 0;
+  figcaption {
+    @include small-caps;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+}
+
+ul, ol { padding-left: 1.75rem; margin-bottom: 1.25rem; }
+li { margin-bottom: 0.35rem; }
+strong { font-weight: 700; color: $ink; }
+em { font-style: italic; color: $text-secondary; }
+
+// Table (editorial style)
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+
+  th {
+    @include small-caps;
+    border-bottom: 2px solid $ink;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    color: $ink;
+  }
+
+  td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid $rule;
+    color: $text;
+  }
+
+  tr:hover td { background: $cream-2; }
+}

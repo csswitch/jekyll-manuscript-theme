@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<main class="ms-page">
+  <div class="post-header">
+    {% if page.category %}<div class="post-header__kicker">{{ page.category }}</div>{% endif %}
+    <h1 class="post-header__title">{{ page.title }}</h1>
+    <div class="post-header__rule"></div>
+    <div class="post-header__meta">
+      <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+      {% if page.author %}<span>By {{ page.author }}</span>{% endif %}
+      <span id="reading-time"></span>
+    </div>
+    {% if page.tags.size > 0 %}
+    <div class="post-header__tags">
+      {% for tag in page.tags %}
+      <a href="{{ '/tags' | relative_url }}#{{ tag | slugify }}" class="tag-pill">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="post-body">{{ content }}</div>
+</main>

@@ -1,0 +1,31 @@
+title: "Manuscript Theme Demo"
+description: "An editorial magazine-style Jekyll theme — serif typography, literary layout, for writers and independent publishers"
+url: "https://csswitch.github.io"
+baseurl: "/jekyll-manuscript-theme"
+author: "csswitch"
+lang: en
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+
+paginate: 6
+paginate_path: "/page/:num/"
+permalink: /:year/:month/:day/:title/
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
+
+manuscript:
+  drop_cap: true        # large drop cap on first paragraph of posts
+  pullquote: true       # styled blockquotes as magazine pull quotes
+  reading_time: true    # estimated reading time in post meta
+  issue_number: "Vol. I"  # shown in header (optional magazine feel)
